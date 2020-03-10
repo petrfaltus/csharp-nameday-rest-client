@@ -31,6 +31,11 @@ namespace NameDayRestClient
             MessageBox.Show(message, title);
         }
 
+        private void menuItemExitClick(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void menuItemAboutClick(object sender, EventArgs e)
         {
             aboutApplication();
