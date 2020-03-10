@@ -11,4 +11,4 @@ set FORM=Form%SOURCE%
 
 call _clean.bat
 
-"%DOTNET_HOME%\csc.exe" /win32icon:%ICON% /out:%EXECUTABLE% /target:winexe AssemblyInfo.cs Program.cs %FORM%.cs %FORM%.Designer.cs
+"%DOTNET_HOME%\csc.exe" /win32icon:%ICON% /out:%EXECUTABLE% /target:winexe AssemblyInfo.cs Program.cs %FORM%.cs %FORM%.Designer.cs Search.cs

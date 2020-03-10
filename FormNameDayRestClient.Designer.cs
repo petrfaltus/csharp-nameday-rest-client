@@ -81,6 +81,7 @@ namespace NameDayRestClient
             this.searchButton.Size = new Size(90, 25);
             this.searchButton.TabIndex = 2;
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new EventHandler(this.searchButtonClick);
 
             // resultLabel
             this.resultLabel = new Label();

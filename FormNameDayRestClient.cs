@@ -6,6 +6,9 @@ namespace NameDayRestClient
 {
     public partial class FormNameDayRestClient : Form
     {
+        private readonly string ERROR = "Error";
+        private readonly string CONFIRMING = "Confirming";
+
         public FormNameDayRestClient()
         {
             InitializeComponent();
@@ -32,6 +35,42 @@ namespace NameDayRestClient
             MessageBox.Show(message, title);
         }
 
+        private void searching()
+        {
+            string messageConfirming = "Really start the searching ?";
+            DialogResult confirmResult = MessageBox.Show(messageConfirming, CONFIRMING, MessageBoxButtons.YesNo);
+            if (confirmResult != DialogResult.Yes)
+            {
+                return;
+            }
+
+            if (String.IsNullOrEmpty(queryTextBox.Text))
+            {
+                string messageIfEmpty = "The name or date cannot be empty";
+                MessageBox.Show(messageIfEmpty, ERROR);
+
+                queryTextBox.Focus();
+
+                return;
+            }
+
+            string result = Search.run(queryTextBox.Text);
+            if (result == null)
+            {
+                string messageError = Search.getLastError();
+                MessageBox.Show(messageError, ERROR);
+
+                queryTextBox.Focus();
+
+                return;
+            }
+
+            resultLabel.Text = result;
+
+            queryTextBox.Text = "";
+            queryTextBox.Focus();
+        }
+
         private void menuItemExitClick(object sender, EventArgs e)
         {
             this.Close();
@@ -40,6 +79,11 @@ namespace NameDayRestClient
         private void menuItemAboutClick(object sender, EventArgs e)
         {
             aboutApplication();
+        }
+
+        private void searchButtonClick(object sender, EventArgs e)
+        {
+            searching();
         }
 
         private void FormNameDayRestClientResize(object sender, EventArgs e)
