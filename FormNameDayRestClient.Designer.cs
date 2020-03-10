@@ -82,6 +82,7 @@ namespace NameDayRestClient
             this.queryTextBox.AcceptsReturn = false;
             this.queryTextBox.AcceptsTab = false;
             this.queryTextBox.Multiline = false;
+            this.queryTextBox.KeyDown += new KeyEventHandler(this.queryTextBoxKeyDown);
 
             // searchButton
             this.searchButton = new Button();

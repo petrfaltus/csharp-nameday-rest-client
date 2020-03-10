@@ -86,6 +86,14 @@ namespace NameDayRestClient
             aboutApplication();
         }
 
+        private void queryTextBoxKeyDown(object sender, KeyEventArgs ke)
+        {
+            if (ke.KeyCode == Keys.Enter)
+            {
+                searching();
+            }
+        }
+
         private void searchButtonClick(object sender, EventArgs e)
         {
             searching();
