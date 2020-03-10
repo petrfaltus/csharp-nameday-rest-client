@@ -76,6 +76,11 @@ namespace NameDayRestClient
             this.Close();
         }
 
+        private void menuItemSearchClick(object sender, EventArgs e)
+        {
+            searching();
+        }
+
         private void menuItemAboutClick(object sender, EventArgs e)
         {
             aboutApplication();

@@ -9,6 +9,8 @@ namespace NameDayRestClient
         private MainMenu mainMenu;
         private MenuItem menuItemFile;
         private MenuItem menuItemExit;
+        private MenuItem menuItemRun;
+        private MenuItem menuItemSearch;
         private MenuItem menuItemInfo;
         private MenuItem menuItemAbout;
 
@@ -45,6 +47,13 @@ namespace NameDayRestClient
             this.menuItemFile = new MenuItem("&File");
             this.menuItemFile.MenuItems.Add(this.menuItemExit);
 
+            // Run menu items
+            this.menuItemSearch = new MenuItem("Se&arch");
+            this.menuItemSearch.Click += new EventHandler(this.menuItemSearchClick);
+
+            this.menuItemRun = new MenuItem("&Run");
+            this.menuItemRun.MenuItems.Add(this.menuItemSearch);
+
             // Info menu items
             this.menuItemAbout = new MenuItem("&About");
             this.menuItemAbout.Click += new EventHandler(this.menuItemAboutClick);
@@ -55,6 +64,7 @@ namespace NameDayRestClient
             // final menu bar
             this.mainMenu = new MainMenu();
             this.mainMenu.MenuItems.Add(this.menuItemFile);
+            this.mainMenu.MenuItems.Add(this.menuItemRun);
             this.mainMenu.MenuItems.Add(this.menuItemInfo);
 
             return mainMenu;
