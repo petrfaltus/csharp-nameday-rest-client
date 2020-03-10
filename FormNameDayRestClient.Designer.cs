@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace NameDayRestClient
@@ -10,6 +11,13 @@ namespace NameDayRestClient
         private MenuItem menuItemExit;
         private MenuItem menuItemInfo;
         private MenuItem menuItemAbout;
+
+        private TextBox queryTextBox;
+        private Button searchButton;
+        private Label resultLabel;
+        private Panel resultPanel;
+
+        private readonly Size panelSizeDiff = new Size(42, 90);
 
         /// <summary>
         /// Required designer variable.
@@ -52,6 +60,55 @@ namespace NameDayRestClient
             return mainMenu;
         }
 
+        private void InitializaBody()
+        {
+            // queryTextBox
+            this.queryTextBox = new TextBox();
+            this.queryTextBox.Name = "queryTextBox";
+            this.queryTextBox.Text = "";
+            this.queryTextBox.Location = new Point(20, 22);
+            this.queryTextBox.Size = new Size(240, 25);
+            this.queryTextBox.TabIndex = 0;
+            this.queryTextBox.AcceptsReturn = false;
+            this.queryTextBox.AcceptsTab = false;
+            this.queryTextBox.Multiline = false;
+
+            // searchButton
+            this.searchButton = new Button();
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Text = "Search";
+            this.searchButton.Location = new Point(280, 20);
+            this.searchButton.Size = new Size(90, 25);
+            this.searchButton.TabIndex = 2;
+            this.searchButton.UseVisualStyleBackColor = true;
+
+            // resultLabel
+            this.resultLabel = new Label();
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Text = "";
+            this.resultLabel.TabIndex = 4;
+            this.resultLabel.AutoSize = true;
+
+            // resultPanel
+            this.resultPanel = new Panel();
+            this.resultPanel.Name = "resultPanel";
+            this.resultPanel.Location = new Point(20, 65);
+            this.resultPanel.Size = new Size(450, 560);
+            this.resultPanel.TabIndex = 3;
+            this.resultPanel.BackColor = Color.White;
+            this.resultPanel.ForeColor = Color.Black;
+            this.resultPanel.BorderStyle = BorderStyle.FixedSingle;
+            this.resultPanel.AutoScroll = true;
+            this.resultPanel.Controls.Add(this.resultLabel);
+
+            // final body
+            this.Controls.Add(this.queryTextBox);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.resultPanel);
+
+            this.ClientSize = Size.Add(this.resultPanel.Size, panelSizeDiff);
+        }
+
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -66,6 +123,7 @@ namespace NameDayRestClient
             this.Text = "Name day REST client";
 
             this.Menu = InitializeMenu();
+            InitializaBody();
 
             this.ResumeLayout(false);
             this.PerformLayout();
