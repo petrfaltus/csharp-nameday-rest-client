@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace NameDayRestClient
@@ -39,6 +40,11 @@ namespace NameDayRestClient
         private void menuItemAboutClick(object sender, EventArgs e)
         {
             aboutApplication();
+        }
+
+        private void FormNameDayRestClientResize(object sender, EventArgs e)
+        {
+            this.resultPanel.Size = Size.Subtract(this.ClientSize, panelSizeDiff);
         }
     }
 }

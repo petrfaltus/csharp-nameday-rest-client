@@ -107,6 +107,7 @@ namespace NameDayRestClient
             this.Controls.Add(this.resultPanel);
 
             this.ClientSize = Size.Add(this.resultPanel.Size, panelSizeDiff);
+            this.Resize += new EventHandler(this.FormNameDayRestClientResize);
         }
 
         /// <summary>
