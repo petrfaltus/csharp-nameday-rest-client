@@ -3,6 +3,8 @@ The C# application for finding name days for the name or for the date built by t
 
 For the operation there must be any **name** or **date** in the text field written.
 
+![Application screenshot](application.screenshot.png)
+
 ## Versions
 The tested version of .NET Framework is **4.0.30319**.
 
