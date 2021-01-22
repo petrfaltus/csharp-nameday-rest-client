@@ -38,6 +38,14 @@ namespace NameDayRestClient
             base.Dispose(disposing);
         }
 
+        private Icon GetOwnIcon()
+        {
+            string executablePath = Application.ExecutablePath;
+            Icon icon = Icon.ExtractAssociatedIcon(executablePath);
+
+            return icon;
+        }
+
         private MainMenu InitializeMenu()
         {
             // File menu items
@@ -134,6 +142,7 @@ namespace NameDayRestClient
             this.SuspendLayout();
             this.Name = "NameDayRestClient";
             this.Text = "Name day REST client";
+            this.Icon = GetOwnIcon();
 
             this.Menu = InitializeMenu();
             InitializaBody();
