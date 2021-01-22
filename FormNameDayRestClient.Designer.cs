@@ -78,7 +78,7 @@ namespace NameDayRestClient
             return mainMenu;
         }
 
-        private void InitializaBody()
+        private void InitializeBody()
         {
             // queryTextBox
             this.queryTextBox = new TextBox();
@@ -145,7 +145,7 @@ namespace NameDayRestClient
             this.Icon = GetOwnIcon();
 
             this.Menu = InitializeMenu();
-            InitializaBody();
+            InitializeBody();
 
             this.ResumeLayout(false);
             this.PerformLayout();
