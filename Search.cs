@@ -12,6 +12,7 @@ namespace NameDayRestClient
         private static readonly string URL_ADDRESS = "http://api.petrfaltus.net/name_day/json/1.0";
         private static readonly string WEB_REQUEST_FAILED = "The web request to the REST service failed";
         private static readonly Encoding encoding = Encoding.UTF8;
+        private static readonly string USER_AGENT = "Petr Faltus C# Nameday REST client";
 
         private static string lastError = null;
         private static Dictionary<string, string> countries = null;
@@ -23,6 +24,7 @@ namespace NameDayRestClient
             // the web client
             WebClient client = new WebClient();
             client.Encoding = encoding;
+            client.Headers.Add("user-agent", USER_AGENT);
 
             string restRequestJson;
             string restReplyJson;
