@@ -10,5 +10,10 @@ namespace NameDayRestClient
         public int case_sensitive { get; set; }
 
         public string[] data { get; set; }
+
+        public RestReply2()
+        {
+            error_code = -999;
+        }
     }
 }
