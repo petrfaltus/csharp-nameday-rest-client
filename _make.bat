@@ -13,4 +13,4 @@ set JSON_DLL=bin\Newtonsoft.Json.dll
 
 call _clean.bat
 
-"%DOTNET_HOME%\csc.exe" /win32icon:%ICON% /reference:%JSON_DLL% /out:%EXECUTABLE% /target:winexe AssemblyInfo.cs Program.cs %FORM%.cs %FORM%.Designer.cs Search.cs RestRequest1.cs RestReply1.cs RestRequest2.cs RestReply2.cs
+"%DOTNET_HOME%\csc.exe" /win32icon:%ICON% /reference:%JSON_DLL% /out:%EXECUTABLE% /target:winexe AssemblyInfo.cs Program.cs %FORM%.cs %FORM%.Designer.cs Search.cs Web.cs RestRequest1.cs RestReply1.cs RestRequest2.cs RestReply2.cs
