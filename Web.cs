@@ -7,7 +7,7 @@ namespace NameDayRestClient
     {
         private static readonly string URL_ADDRESS = "http://api.petrfaltus.net/name_day/json/1.0";
         private static readonly Encoding encoding = Encoding.UTF8;
-        private static readonly string USER_AGENT = "Petr Faltus C# Nameday REST client";
+        private static readonly string USER_AGENT = "Petr Faltus C# Name day REST client";
 
         private static WebClient client = null;
 
