@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Text;
 
 using Newtonsoft.Json;
 
@@ -9,10 +7,7 @@ namespace NameDayRestClient
 {
     static class Search
     {
-        private static readonly string URL_ADDRESS = "http://api.petrfaltus.net/name_day/json/1.0";
         private static readonly string WEB_REQUEST_FAILED = "The web request to the REST service failed";
-        private static readonly Encoding encoding = Encoding.UTF8;
-        private static readonly string USER_AGENT = "Petr Faltus C# Nameday REST client";
 
         private static string lastError = null;
         private static Dictionary<string, string> countries = null;
@@ -20,11 +15,6 @@ namespace NameDayRestClient
         public static string run(string query)
         {
             lastError = null; // await no errors
-
-            // the web client
-            WebClient client = new WebClient();
-            client.Encoding = encoding;
-            client.Headers.Add("user-agent", USER_AGENT);
 
             string restRequestJson;
             string restReplyJson;
@@ -37,7 +27,7 @@ namespace NameDayRestClient
                 restRequestJson = JsonConvert.SerializeObject(restRequest1);
                 try
                 {
-                    restReplyJson = client.UploadString(URL_ADDRESS, restRequestJson);
+                    restReplyJson = Web.Request(restRequestJson);
                 }
                 catch (Exception)
                 {
@@ -69,7 +59,7 @@ namespace NameDayRestClient
                 restRequestJson = JsonConvert.SerializeObject(restRequest2);
                 try
                 {
-                    restReplyJson = client.UploadString(URL_ADDRESS, restRequestJson);
+                    restReplyJson = Web.Request(restRequestJson);
                 }
                 catch (Exception)
                 {
